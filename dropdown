@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Country Flags Dropdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+  }
+  .dropdown-toggle {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    width: 160px;
+  }
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  .dropdown-item img {
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 20px;
+    height: 15px;
+  }
+  .dropdown-item:hover {
+    background-color: #ddd;
+  }
+</style>
+</head>
+<body>
+  <center>
+    <h1 style="color: green">GeeksforGeeks</h1>
+    <div class="dropdown">
+      <button class="dropdown-toggle" onclick="toggleDropdown()" aria-haspopup="true" aria-expanded="false">
+        Country Flags
+      </button>
+      <ul id="dropdownMenu" class="dropdown-menu">
+        <li class="dropdown-item" onclick="selectCountry('India')">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132503/iflag.jpg" alt="India flag">
+          India
+        </li>
+        <li class="dropdown-item" onclick="selectCountry('USA')">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132504/uflag.jpg" alt="USA flag">
+          USA
+        </li>
+        <li class="dropdown-item" onclick="selectCountry('England')">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132502/eflag.jpg" alt="England flag">
+          England
+        </li>
+        <li class="dropdown-item" onclick="selectCountry('Brazil')">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132500/bflag.jpg" alt="Brazil flag">
+          Brazil
+        </li>
+      </ul>
+    </div>
+  </center>
+  
+  <script>
+    function toggleDropdown() {
+      var dropdownMenu = document.getElementById('dropdownMenu');
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    function selectCountry(country) {
+      var dropdownToggle = document.querySelector('.dropdown-toggle');
+      dropdownToggle.textContent = 'Country Flags - ' + country;
+      toggleDropdown();
+    }
+    
+    // Close dropdown when clicking outside
+    window.onclick = function(event) {
+      var dropdownMenu = document.getElementById('dropdownMenu');
+      var dropdownToggle = document.querySelector('.dropdown-toggle');
+      if (!event.target.matches('.dropdown-toggle')) {
+        dropdownMenu.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
